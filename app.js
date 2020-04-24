@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 5000;
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -98,4 +99,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app.listen(3000);
+module.exports = app;
