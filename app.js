@@ -37,6 +37,44 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+app.use(session({
+  secret:'secret123',
+  resave: false,
+  saveUninitialized: false,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy({
+  passReqToCallback: true,
+},
+  (username, password, authCheckDone) => {
+    app.locals.users
+    .findOne({ username })
+    .then(user => {
+      if(!user){
+        return authCheckDone(null, false, req.flash('error', 'User not found.'));
+      }
+      
+      if(user.password !== password) {
+        return authCheckDone(null, false, req.flash('error', 'Password Incorrect!'));
+      }
+
+      return authCheckDone(null, false);
+      
+    });
+  }
+));
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((id, done) => {
+  done(null, { id });
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
