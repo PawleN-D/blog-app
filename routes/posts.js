@@ -20,11 +20,11 @@ router.get('/create-post', (req, res, next) => {
 
 router.post('/create-post', (req, res, next) => {
     const { title, content } = req.body;
-    const username = req.user.username;
+    // const username = req.user.username;
     const posts = req.app.locals.posts;
     const date = new Date().toISOString();
       posts
-      .insertOne({ tilte, content, date, author: username })
+      .insertOne({ title, content, date })
       .then(() => {
         req.flash('success', 'Post created successfully');
         res.redirect('/create-post');
@@ -35,7 +35,7 @@ router.post('/create-post', (req, res, next) => {
       });
 });
 
-router.get('/post', (req, res, next) => {
+router.get('/posts', (req, res, next) => {
     const posts = req.app.locals.posts;
 
     posts

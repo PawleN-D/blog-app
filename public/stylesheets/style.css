@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.error {
+  background-color: #cf1b1b;
+}
+
+.post {
+  box-shadow: 0 0 32px 2px rgba(0, 0, 0, 0.2);
+  padding: 20px 2%;
+  margin: 20px 0;
+}
+
+.meta {
+  font-size: 19px;
+}
+
+.post-content {
+  margin-top: 15px;
+}

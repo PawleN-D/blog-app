@@ -13,15 +13,18 @@ const flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const postRouter = require('./routes/posts');
+const postsRouter = require('./routes/posts');
 
 var app = express();
 
 //setup connection to MongoDB database
-MongoClient.connect('mongodb://localhost:27017/blogdb', (err, client) => {
-  if (err) {
-    throw err;
-  }
+MongoClient.connect('mongodb://localhost:27017/blogdb', { 
+  useUnifiedTopology: true 
+},  (err, client) => {
+  // if (err) {
+  //   throw err;
+  // }
+  
   const db = client.db('blogdb');
   const posts = db.collection('posts');
   const users = db.collection('users');
@@ -70,7 +73,7 @@ passport.use(new LocalStrategy({
 ));
 
 passport.serializeUser((user, done) => {
-  done(null, { id: user._id, username: user.username });
+  done(null, {id: user._id, username: user.username});
 });
 
 passport.deserializeUser((userData, done) => {
@@ -79,7 +82,7 @@ passport.deserializeUser((userData, done) => {
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-app.use('/', postRouter);
+app.use('/', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,9 @@
 <div class="post">
     <h2><%= post.title %></h2>
-    <span class="meta">By <%= post.username %> on <%= post.date %></span>
+    <span class="meta">By <%= post.author %> on <%= post.date %></span>
     <div class="post_content">
         <%= post.content%>
     </div>
 </div>
+
+<% include ./_footer %>

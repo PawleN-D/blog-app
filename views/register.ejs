@@ -1,11 +1,29 @@
-<form action="/register" method="POST">
-    <label for="username">
-        Username
-        <input type="text" name="username">
-    </label>
-    <label for="password">
-        Password
-        <input type="password" name="password">
-    </label>
-    <button class="btn btn-success">Register</button>
-</form>
+i<% include ./_header %>
+<% include ./_flash %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 text-center">
+            <form action="/register" method="POST">
+                <label for="username">
+                    Username
+                    <input type="text" name="username">
+                </label>
+                <label for="password">
+                    Password
+                    <input type="password" name="password">
+                </label>
+                <button class="btn btn-success">Register</button>
+            </form>
+            
+            <span>Already have access? Please<a href="/login">login here</a></span>
+            <span>Go to<a href="/index">Home</a></span>
+            
+
+            <span>Don't have access yet? Dont MISS OUT!!<a href="/register">Register here</a></span>
+            <span>Go to<a href="/index">Home</a></span>
+        </div>
+    </div>
+</div>
+
+<% include ./_footer %>
