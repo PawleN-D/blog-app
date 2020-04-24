@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 //Dependancies g to be used on this project
 const MongoClient = require('mongodb').MongoClient;
-const passport = require('passport');
+const passport = require('  f  ;mo3wqodowpassport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -100,4 +100,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = app.listen(3000);

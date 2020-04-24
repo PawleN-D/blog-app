@@ -48,7 +48,9 @@ router.get('/posts/:id', (req, res, next) => {
     const posts = req.app.locals.posts;
     const postID = ObjectID(req.params.id);
 
-    posts.find({ _id: postID }).then(post => res.render('post', { post }));
+    posts
+    .find({ _id: postID })
+    .then(post => res.render('post', { post }));
 });
 
 module.exports = router;
