@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 //Dependancies g to be used on this project
 const MongoClient = require('mongodb').MongoClient;
-const passport = require('  f  ;mo3wqodowpassport');
+const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -18,9 +18,7 @@ const postsRouter = require('./routes/posts');
 var app = express();
 
 //setup connection to MongoDB database
-MongoClient.connect('mongodb://localhost:27017/blogdb', { 
-  useUnifiedTopology: true 
-},  (err, client) => {
+MongoClient.connect('mongodb://localhost:27017/blogdb', {useUnifiedTopology: true},  (err, client) => {
   // if (err) {
   //   throw err;
   // }
