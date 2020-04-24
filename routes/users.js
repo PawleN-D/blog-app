@@ -14,4 +14,28 @@ router.post('/login', passport.authenticate('local', {
   res.redirect('/create-post');
 });
 
+router.get('/register', (req, res, next) => {
+  const flash = req.flash();
+  const error = flash.error || [];
+  const success = flash.success || [];
+
+  res.render('register', { error, success });
+});
+
+router.post('/register', (req, res, next) => {
+  const { username, password } = req.body;
+  const users = req.app.locals.users;
+
+  users
+    .insertOne({ username, password })
+    .then(() => {
+      req.flash('success', 'User registered successfully');
+      res.redirect('/register');
+    })
+    .catch(() => {
+      req.flash('error', 'Error registered user');
+      res.redirect('/register');
+    });
+});
+
 module.exports = router;
