@@ -1,15 +1,75 @@
-body {
+body,html {
+  height: 100%;
   padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
 }
 
 .error {
   background-color: #cf1b1b;
 }
+/******************************** Main Navbar styling Start *******************************/
+
+.navbar {
+  padding: 0.5rem 0rem;
+  background-color: #36414c;
+}
+
+nav li {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+nav li span {
+  padding-left: 5px;
+}
+
+nav li a {
+  padding: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+
+
+/******************************** Main Navbar styling End *******************************/
+
+/******************************** Home Page Banner Section styling Start *******************************/
+.hero-wrap {
+  justify-content: center;
+  margin-top: 0px;
+  min-height: calc(100vh - 67px);
+  padding: 60px 0;
+
+}
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/hero-image.png"); */
+  background-color: black;
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  color: black;
+}
+
+
+
+/******************************** Home page Bannner styling End *******************************/
+
+/******************************** Main Navbar styling *******************************/
 
 .post {
   box-shadow: 0 0 32px 2px rgba(0, 0, 0, 0.2);
@@ -24,3 +84,24 @@ a {
 .post-content {
   margin-top: 15px;
 }
+
+/******************************** Main Navbar styling Start *******************************/
+
+footer {
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-container {
+  background-color: rgba(10, 9, 1, 0.905);
+  padding: 40px 0;
+}
+
+.copy-right p {
+  color: #c6def6;
+  font-size: 12px;
+  margin: 0;
+}
+/******************************** Main Navbar styling End *******************************/
+
